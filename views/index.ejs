@@ -1,11 +1,245 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/output.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p class="text-3xl text-red-500">Welcome to <%= title %></p>
-  </body>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feeaky Fashion</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!--Nav-->
+  <header>
+    <nav class="topnav">
+      <img class="logo" src="https://placehold.co/639x120/png?text=Freaky+Fashion" alt="Freaky Fashion logo" />
+
+      <form action="/search">
+        <input type="text" placeholder="Sök produkt" aria-label="Sök produkt" />
+      </form>
+
+      <ul class="icon-container">
+        <li><a href="#"><img class="icons" src="/stylesheets/BSicons/heart-fill.svg" alt="Wishlist icon" /></a></li>
+        <li><a href="#"><img class="icons" src="/stylesheets/BSicons/bag.svg" alt="Shopping bag icon" /></a></li>
+      </ul>
+    </nav>
+
+    <nav class="kategorier" aria-label="Category Navigation">
+      <ul>
+        <li><a href="#">Nyheter</a></li>
+        <li><a href="#">Topplistan</a></li>
+        <li><a href="#">Rea</a></li>
+        <li><a href="#">Kampanjier</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--Nav ends-->
+
+  <!--Hero-->
+  <main>
+    <section>
+      <div class="hero-container">
+        <article class="hero-content">
+          <figure>
+          <img class="hero-image" src="https://placehold.co/1200x700/000000/FFF" alt="Hero Image" />
+        </figure>
+          <div class="text-content">
+            <h1>Shine with your style</h1>
+            <p>
+              Låt din personlighet lysa genom din klädsel. Oavsett om du väljer en klassisk look eller vågar experimentera med färger och mönster, är det din stil som gör intryck. Stråla av självförtroende och låt din stil tala för sig själv!
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!--Hero Ends-->
+
+    <!--Invisible flex  -->
+
+    <section aria-labelledby="image-gallery">
+      <div class="flex-container">
+        <figure class="image-wrapper">
+          <a href="#"><img src="https://placehold.co/400x300/FF0000/FFF" alt="Image 1" /></a>
+          <figcaption>
+          <a href="#" class="overlay-link">Lorem Ipsum Dolor</a>
+        </figcaption>
+        </figure>
+        <figure class="image-wrapper">
+          <a href="#"><img src="https://placehold.co/400x300/00FF00/FFF" alt="Image 2" /></a>
+          <figcaption>
+          <a href="#" class="overlay-link">Lorem Ipsum Dolor</a>
+        </figcaption>
+        </figure>
+        <figure class="image-wrapper">
+          <a href="#"><img src="https://placehold.co/400x300/0000FF/FFF" alt="Image 3" /></a>
+          <figcaption>
+          <a href="#" class="overlay-link">Lorem Ipsum Dolor</a>
+        </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!--Procuts-->
+    
+    <section>
+      <div class="product-container">
+        <% products.forEach(product => { %>
+          <article class="product-wrapper">
+            <figure class="product-image">
+              <a href="/product/<%= product.id %>"> <!-- Link to product details -->
+                <img src="<%= product.imageUrl %>" alt="<%= product.name %>" />
+              </a>
+              
+              <button class="empty-btn" aria-label="Add to favorites">
+                <img src="/stylesheets/BSicons/heart.svg" alt="Add to favorites" class="empty-img" />
+              </button>
+            </figure>
+            <figcaption class="detail-image">
+              <p class="color"><%= product.name %></p>
+              <p class="pris-tag"><%= product.price %> SEK</p>
+              <p class="brand-name"><%= product.brand %></p>
+            </figcaption>
+          </article>
+        <% }) %>
+      </div>
+    </section>
+ 
+    <!--Product Ends-->
+
+    <!--Features-->
+    <section>
+     <div  class="feature">
+      <article class="feature-item">
+        <img src="/stylesheets/BSicons/globe-europe-africa.svg" alt="Earth icon" class="feature-icon" />
+        <p>Gratis frakt och returer</p>
+      </article>
+      <article class="feature-item">
+        <img src="/stylesheets/BSicons/airplane-fill.svg" alt="Airplane icon" class="feature-icon" />
+        <p>Expressfrakt</p>
+      </article>
+      <article class="feature-item">
+        <img src="/stylesheets/BSicons/shield-shaded.svg" alt="Shield icon" class="feature-icon" />
+        <p>Säkra betalningar</p>
+      </article>
+      <article class="feature-item">
+        <img src="/stylesheets/BSicons/emoji-smile.svg" alt="Placeholder Icon" class="feature-icon" />
+        <p>Nyheter varje dag</p>
+      </article>
+    </div> 
+    </section>
+  </main>
+  <!--Features Ends-->
+
+  <!--Accordion-->
+
+  <nav class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          Shopping
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul>
+            <li><a href="#">Vinterjacka</a></li>
+            <li><a href="#">Pufferjacka</a></li>
+            <li><a href="">Kappa</a></li>
+            <li><a href="#">Trenchcoats</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          Mina Sidor
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul>
+            <li><a href="#">Mina Ordrar</a></li>
+            <li><a href="#">Mitt Konto</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Kundtjänst
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul>
+            <li><a href="#">Returnpolicy</a></li>
+            <li><a href="#">Integritetspolicy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">&copy; Freaky Fashion</div>
+  </nav>
+
+  <!--Footer-->
+
+  <footer class="footer">
+    <nav aria-label="Footer Navigation">
+      <div class="footer-content">
+       <section>
+        <div class="footer-col">
+          <h4>Shopping</h4>
+          <ul>
+            <li><a href="#">Vinterjackor</a></li>
+            <li><a href="#">Pufferjackor</a></li>
+            <li><a href="#">Kappa</a></li>
+            <li><a href="#">Trenchcoats</a></li>
+          </ul>
+        </div>
+      </section>
+
+     <section>
+      <div class="footer-col">
+          <h4>Mina Sidor</h4>
+          <ul>
+            <li><a href="#">Mina Ordrar</a></li>
+            <li><a href="#">Mitt Konto</a></li>
+          </ul>
+        </div>
+      </section>  
+
+      <section>
+        <div class="footer-col">
+          <h4>Kundtjänst</h4>
+          <ul>
+            <li><a href="#">Returnpolicy</a></li>
+            <li><a href="#">Integritetspolicy</a></li>
+          </ul>
+        </div>
+       </section>
+       </div>
+      </nav> 
+
+      <div class="copyright">&copy; Freaky Fashion</div>
+
+  </footer>
+</body>
+
 </html>
