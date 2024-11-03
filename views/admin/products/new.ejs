@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ny produkt</title>
+    <link rel="stylesheet" href="/stylesheets/newhtml.css">
+</head>
+<body>
+    <header>
+        <h1>Administration</h1>
+    </header>
+
+    <main class="container">
+        <aside class="sidebar">
+            <h2>Produkter</h2>
+        </aside>
+
+        <section>
+            <article>
+                <h2>Ny produkt</h2>
+            </article>
+
+            <form id="product-form">
+                <label for="name">Namn</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="Beskrivning">Beskrivning</label>
+                <textarea id="Beskrivning" name="Beskrivning" rows="12" cols="50" placeholder=""></textarea>
+
+                <label for="imageUrl">Bild URL</label>
+                <input type="text" id="imageUrl" name="imageUrl" placeholder="Enter image URL" required>
+
+                <label for="brand">Märke</label>
+                <input type="text" id="brand" name="brand" required>
+
+                <label for="SKU">SKU</label>
+                <input type="text" id="SKU" name="SKU" required>
+
+                <label for="pris">Pris</label>
+                <input type="number" id="pris" name="pris" required>
+
+                <button type="submit">Skicka</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('product-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Förhindra att formuläret skickas på det vanliga sättet
+
+            // Samla in data från formuläret
+            const formData = {
+                name: document.getElementById('name').value,
+                Beskrivning: document.getElementById('Beskrivning').value,
+                imageUrl: document.getElementById('imageUrl').value,
+                brand: document.getElementById('brand').value,
+                SKU: document.getElementById('SKU').value,
+                pris: document.getElementById('pris').value
+            };
+
+            // Skicka POST-anrop till backend
+            fetch('/admin/products/new', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Något gick fel: ' + response.statusText);
+                }
+                return response.json(); // Vi kan hantera svar som JSON
+            })
+            .then(data => {
+                // Omdirigera till produktlistan efter att produkten har lagrats
+                window.location.href = '/admin/products';
+            })
+            .catch(error => {
+                console.error('Det uppstod ett fel:', error);
+                alert('Fel vid inlämning av formuläret. Vänligen försök igen.'); // Visa ett felmeddelande
+            });
+        });
+    </script>
+</body>
+</html>

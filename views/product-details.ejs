@@ -14,13 +14,13 @@
   <!-- Navigation -->
   <header>
     <nav class="topnav">
-      <img class="logo" src="https://placehold.co/600x120/png?text=Freaky+Fashion" alt="Freaky Fashion logotype" />
+      <a href="http://localhost:3000/"><img class="logo" src="https://placehold.co/639x140/D7727C/FFF?text=Freaky Fashion" alt="Freaky Fashion logotype" /> </a>
       <form action="search" role="search">
         <input type="text" placeholder="Sök produkt" aria-label="Sök produkt" />
       </form>
       <div class="icon-container">
-        <a href="#"><img class="icons" src="/BSicons/heart-fill.svg" alt="Add to favorites" /></a>
-        <a href="#"><img class="icons" src="/BSicons/bag.svg" alt="Shopping bag" /></a>
+        <a href="#"><img class="icons" src="/stylesheets/BSicons/heart-fill.svg" alt="Add to favorites" /></a>
+        <a href="#"><img class="icons" src="/stylesheets/BSicons/bag.svg" alt="Shopping bag" /></a>
       </div>
     </nav>
     <nav class="kategorier" aria-label="Category Navigation">
@@ -64,10 +64,12 @@
           <% similarProducts.forEach(function(similarProduct) { %>
             <figure>
               <a href="/product/<%= similarProduct.id %>">
-                <img src="<%= similarProduct.imageUrl %>" alt="<%= similarProduct.name %>" />
+                <img src="<%= similarProduct.imageUrl %>" alt="<%=similarProduct.name %>" />
                 <figcaption>
-                  <h5><%= similarProduct.name %></h5>
-                  <p><%= similarProduct.price %> SEK</p>
+                  <h5 class="product-name"><%= similarProduct.name %></h5>
+                  <p class="price-tag"><%=similarProduct.price%> SEK</p>
+                  <p><%=similarProduct.brand%></p>
+
                 </figcaption>
               </a>
             </figure>
@@ -79,19 +81,19 @@
     <section>
       <div class="feature">
         <article class="feature-item">
-          <img src="/BSicons/globe-europe-africa.svg" alt="Earth icon" class="feature-icon" />
+          <img src="/stylesheets/BSicons/globe-europe-africa.svg" alt="Earth icon" class="feature-icon" />
           <p>Gratis frakt och returer</p>
         </article>
         <article class="feature-item">
-          <img src="/BSicons/airplane-fill.svg" alt="Airplane icon" class="feature-icon" />
+          <img src="/stylesheets/BSicons/airplane-fill.svg" alt="Airplane icon" class="feature-icon" />
           <p>Expressfrakt</p>
         </article>
         <article class="feature-item">
-          <img src="/BSicons/shield-shaded.svg" alt="Shield icon" class="feature-icon" />
+          <img src="/stylesheets/BSicons/shield-shaded.svg" alt="Shield icon" class="feature-icon" />
           <p>Säkra betalningar</p>
         </article>
         <article class="feature-item">
-          <img src="/BSicons/emoji-smile.svg" alt="Placeholder Icon" class="feature-icon" />
+          <img src="/stylesheets/BSicons/emoji-smile.svg" alt="Placeholder Icon" class="feature-icon" />
           <p>Nyheter varje dag</p>
         </article>
       </div>

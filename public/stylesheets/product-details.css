@@ -69,6 +69,8 @@ body {
     display: none;
 }
 
+
+
 @media (max-width: 640px) {
     .topnav form {
         width: 75%;
@@ -120,6 +122,15 @@ body {
 
 /* Main */
 
+.products-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
 
 .product-container {
     display: flex;
@@ -127,11 +138,38 @@ body {
     gap: 20px;
     align-items: flex-start;
     margin-top: 15px;
-
+    width: 100%;   /* Ensures the container takes full width */
 }
 
 .product-image img {
     width: 100%;
+    height: auto;
+    max-width: 600px; /* Limits width on larger screens */
+}
+
+/* Media query for small screens (375px to 639px) */
+@media (max-width: 640px) {
+    .product-container {
+        align-items: center;
+        padding: 0;            /* Removes padding to eliminate extra space */
+    }
+
+    .product-image img {
+        max-width: 100%;      /* Ensures the image stretches to fill the container */
+        min-width: 100%;      /* Makes the image take full width of the viewport */
+        width: 100%;          /* Full width for smaller screens */
+        margin: 0;            /* Removes any default margin that could add whitespace */
+    }
+
+    .detail-image {
+        width: 100%;          /* Allows other content to also take full width */
+    }
+}
+
+.products-container img {
+    width: 100%;          /* Image fills the width of its container */
+    height: 100%;         /* Maintains aspect ratio */
+    transition: transform 0.3s ease;  /* Smooth scaling effect on hover */
 }
 
 .product-title,
@@ -174,6 +212,24 @@ button:hover {
 
 .products-section {
     display: none;
+}
+
+figcaption {
+    margin-top: 20px;
+    color: #000;
+}
+
+.products-container figcaption {
+    position: relative;
+    padding-top: 10px;
+  }
+
+.price-tag {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 10px;
+    size: 1em;
 }
 
 
@@ -255,6 +311,7 @@ button:hover {
         width: 100%;
         justify-content: space-evenly;
         max-width: 100%;
+        position: relative;
     }
 
     .products-section {

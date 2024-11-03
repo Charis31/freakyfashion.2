@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    padding: 0;
+   
+}
+
+
+header {
+    display: block;
+    background-color: rgb(55, 55, 55); 
+    color: white; 
+    padding: 20px 0; 
+    width: 100%; 
+    min-width: 670px;
+    font-size: 24px; 
+    font-family: Arial, sans-serif; 
+    padding-left: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+.container {
+    align-items: stretch;
+    display: flex;
+    width: 100%;
+    min-width: 620px;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    height: 850px;
+    background-color: lightgrey;
+    padding: 20px;
+    border: 1px solid #000;
+    
+}
+
+h2 {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+aside h2 {
+    padding: 0;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+label {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#name {
+    display: block;
+    max-width: 70%;
+    padding: 8px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    margin-top: 10px;
+    border: 2px solid #000;
+}
+
+#Beskrivning {
+    display: block;
+    max-width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 1em;
+    resize: none;
+    border: 2px solid #000;
+}
+
+
+
+
+/* Bild */
+
+#imageUrl {
+    display: block;
+    border: 2px solid #000;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 86%;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+
+/* Number */
+
+#brand {
+    display: block;
+    max-width: 30%;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
+#SKU {
+    display: block;
+    max-width: 30%;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
+#pris {
+    display: block;
+    max-width: 30%;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
+legend  {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 20px;
+   padding-bottom: 5px;
+}
+
+fieldset input[type="checkbox"] {
+    width: 16px; 
+    height: 16px; 
+    margin-right: 2px; 
+    margin-bottom: 8px;
+}
+
+
+fieldset label {
+    font-size: 0.9em;
+    font-style: oblique;
+    margin: 5px;
+    font-family: Arial, sans-serif;
+    font-weight: 300;
+}
+
+fieldset {
+   border: none;
+   padding: 5px;
+}
+
+
+button {
+    margin-bottom: 30px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+}
