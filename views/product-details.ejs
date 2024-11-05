@@ -44,8 +44,8 @@
           <h2 class="product-title"><%= product.name %></h2>
           <p class="brand-name"><%= product.brand %></p>
           <p class="product-details">
-            <!-- Add a description if you have one in your products array -->
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <%=product.beskriving%>
+            
           </p>
           <p class="pris-tag"><%= product.price %> SEK</p>
           <button aria-label="Put <%= product.name %> in cart">
