@@ -100,9 +100,105 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
+  <!--Accordion-->
+
+  <nav class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          Shopping
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul>
+            <li><a href="#">Vinterjacka</a></li>
+            <li><a href="#">Pufferjacka</a></li>
+            <li><a href="">Kappa</a></li>
+            <li><a href="#">Trenchcoats</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          Mina Sidor
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul>
+            <li><a href="#">Mina Ordrar</a></li>
+            <li><a href="#">Mitt Konto</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Kundtjänst
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul>
+            <li><a href="#">Returnpolicy</a></li>
+            <li><a href="#">Integritetspolicy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="copyright">&copy; Freaky Fashion</div>
+  </nav>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <nav aria-label="Footer Navigation">
+      <div class="footer-content">
+       <section>
+        <div class="footer-col">
+          <h4>Shopping</h4>
+          <ul>
+            <li><a href="#">Vinterjackor</a></li>
+            <li><a href="#">Pufferjackor</a></li>
+            <li><a href="#">Kappa</a></li>
+            <li><a href="#">Trenchcoats</a></li>
+          </ul>
+        </div>
+      </section>
+
+     <section>
+      <div class="footer-col">
+          <h4>Mina Sidor</h4>
+          <ul>
+            <li><a href="#">Mina Ordrar</a></li>
+            <li><a href="#">Mitt Konto</a></li>
+          </ul>
+        </div>
+      </section>  
+
+      <section>
+        <div class="footer-col">
+          <h4>Kundtjänst</h4>
+          <ul>
+            <li><a href="#">Returnpolicy</a></li>
+            <li><a href="#">Integritetspolicy</a></li>
+          </ul>
+        </div>
+       </section>
+       </div>
+      </nav> 
+
+      <div class="copyright">&copy; Freaky Fashion</div>
+
   </footer>
 </body>
 
