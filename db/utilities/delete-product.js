@@ -17,8 +17,7 @@ const db = new sqlite3.Database(
  
 const sql = `
     DELETE FROM products
-          WHERE brand = ?
-    );
+    WHERE brand = ?
 `;
  
 // 4 - Hämta in värden från användaren
