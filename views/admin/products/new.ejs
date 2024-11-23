@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ny produkt</title>
     <link rel="stylesheet" href="/stylesheets/newhtml.css">
-    <script src="/javascripts/new-submit.js"></script>
+    <script src="/javascript/new-submit.js" defer></script>
 </head>
 <body>
     <header>
@@ -22,7 +22,7 @@
                 <h2>Ny produkt</h2>
             </article>
 
-            <form id="product-form">
+            <form id="product-form" method="post">
                 <label for="name">Namn</label>
                 <input type="text" id="name" name="name" >
 
@@ -45,44 +45,5 @@
             </form>
         </section>
     </main>
-
-    <script>
-        document.getElementById('product-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Förhindra att formuläret skickas på det vanliga sättet
-
-            // Samla in data från formuläret
-            const formData = {
-                name: document.getElementById('name').value,
-                Beskrivning: document.getElementById('Beskrivning').value,
-                imageUrl: document.getElementById('imageUrl').value,
-                brand: document.getElementById('brand').value,
-                SKU: document.getElementById('SKU').value,
-                pris: document.getElementById('pris').value
-            };
-
-            // Skicka POST-anrop till backend
-            fetch('/admin/products/new', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Något gick fel: ' + response.statusText);
-                }
-                return response.json(); // Vi kan hantera svar som JSON
-            })
-            .then(data => {
-                // Omdirigera till produktlistan efter att produkten har lagrats
-                window.location.href = '/admin/products';
-            })
-            .catch(error => {
-                console.error('Det uppstod ett fel:', error);
-                alert('Fel vid inlämning av formuläret. Vänligen försök igen.'); // Visa ett felmeddelande
-            });
-        });
-    </script>
 </body>
 </html>

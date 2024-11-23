@@ -16,9 +16,9 @@ const sql = `
    SELECT brand,
           product_name,
           SKU,
-          pris,
-          item_url,
-     FROM students
+          pris
+          
+     FROM products
 `;
  
 // 5 - Kör SQL-kommando
@@ -27,7 +27,7 @@ db.all(sql, [], function (error, rows) {
    
 
     rows.forEach(row => {
-        console.log(row.brand + ", " +row.product_name + ", " + row.SKU + ", " + row.pris + "SEK" +  ", " + row.item_url);
+        console.log(row.brand + ", " +row.product_name + ", " + row.SKU + ", " + row.pris + "SEK" );
     });
  
 });

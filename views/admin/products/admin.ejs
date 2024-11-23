@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Page</title>
   <link rel="stylesheet" href="/stylesheets/admin.css">
+  <script src="/javascript/admin-script.js" defer></script>
 </head>
 <body>
 
@@ -35,49 +36,14 @@
             <th>Namn</th>
             <th>SKU</th>
             <th>Pris</th>
-            <th>Item URL</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Rows will be populated dynamically here -->
+          
         </tbody>
       </table>
     </section>
   </main>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('load-products-btn').addEventListener('click', () => {
-        fetch('/admin/api/products')
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then(products => {
-            const productTableBody = document.querySelector('#product-table tbody');
-            productTableBody.innerHTML = ''; // Clear existing rows
-
-            // Populate table with products
-            products.forEach(product => {
-              const row = document.createElement('tr');
-              row.innerHTML = `
-                <td>${product.brand || 'N/A'}</td>
-                <td>${product.product_name || 'N/A'}</td>
-                <td>${product.SKU || 'N/A'}</td>
-                <td>${product.pris || 'N/A'}</td>
-                <td><a href="${product.item_url || '#'}" target="_blank">${product.item_url || 'N/A'}</a></td>
-              `;
-              productTableBody.appendChild(row);
-            });
-          })
-          .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-          });
-      });
-    });
-  </script>
 </body>
 </html>
  

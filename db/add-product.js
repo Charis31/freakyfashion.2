@@ -18,14 +18,14 @@ const sql = `
         brand,
         product_name,
         SKU,
-        pris,
-        item_url
+        pris
+        
     ) VALUES (
         ?,
         ?,
         ?,
-        ?,
         ?
+        
     );
 `;
  
@@ -37,12 +37,12 @@ const brand = prompt("brand: ");
 const product_name = prompt("Product Name: ");
 const SKU = prompt("SKU: ");
 const pris = prompt("price: ");
-const item_url = prompt("Bild (URL): ");
+
  
 // 5 - Kör SQL-kommando
  
 // Använd db.run() för att köra SQL INSERT INTO, UPDATE och DELETE
-db.run(sql, [brand, product_name, SKU, pris, item_url], function (error) {
+db.run(sql, [brand, product_name, SKU, pris ], function (error) {
    
     console.log("Product registrerad");
  

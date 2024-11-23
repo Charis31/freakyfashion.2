@@ -3,7 +3,7 @@ var router = express.Router();
 
 //product data
 const products = [
-  { id: "Creme T-Shirt",
+  { id: "Creme-T-Shirt",
     name: "Creme T-Shirt", 
     SKU: "CRSH-2233-901M",
     beskriving: "En stilren T-shirt i mjuk bomull med en tidlös cremefärg. Perfekt basplagg med avslappnad passform, rund hals och korta ärmar. Passar lika bra till jeans som under en kavaj för en enkel, elegant look.",

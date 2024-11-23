@@ -20,7 +20,7 @@ router.get("/api/products", (req, res) => {
         }
     });
 
-    const sql = `SELECT brand, product_name, SKU, pris, item_url FROM products`;
+    const sql = `SELECT brand, product_name, SKU, pris FROM products`;
 
     db.all(sql, [], (error, rows) => {
         if (error) {

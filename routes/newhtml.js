@@ -12,14 +12,14 @@ router.get('/', (req, res) => {
 
 // POST route to handle form submissions and add a new product
 router.post('/', (req, res) => {
-    const { name, imageUrl, brand, SKU, pris } = req.body;
+    const { name, brand, SKU, pris } = req.body;
 
     // Append 'SEK' to the price
     const formattedPrice = `${pris} SEK`; // Append SEK to the price
 
     const sql = `
-        INSERT INTO products (product_name, item_url, brand, SKU, pris)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO products (product_name, brand, SKU, pris)
+        VALUES (?, ?, ?, ?)
     `;
 
     const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
         }
     });
 
-    db.run(sql, [name, imageUrl, brand, SKU, formattedPrice], function (error) {
+    db.run(sql, [name, brand, SKU, formattedPrice], function (error) {
         if (error) {
             console.error(error.message);
             return res.status(500).json({ error: error.message });
