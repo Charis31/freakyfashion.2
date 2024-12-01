@@ -7,7 +7,7 @@ const dbPath = path.join(__dirname, '../db/product-management.db');
 
 // GET route to serve the new product form
 router.get('/', (req, res) => {
-    res.render('admin/products/new'); // Adjust this path if needed to match the location of new.ejs
+    res.render('admin/products/new'); 
 });
 
 // POST route to handle form submissions and add a new product
@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
     const { name, brand, SKU, pris } = req.body;
 
     // Append 'SEK' to the price
-    const formattedPrice = `${pris} SEK`; // Append SEK to the price
+    const formattedPrice = `${pris} SEK`; 
 
     const sql = `
         INSERT INTO products (product_name, brand, SKU, pris)

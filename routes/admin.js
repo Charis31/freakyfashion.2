@@ -8,7 +8,7 @@ const dbPath = path.join(__dirname, "../db/product-management.db");
 
 // Route to render the admin.ejs page
 router.get('/products', (req, res) => {
-    res.render("admin/products/admin"); // Adjusted to match the full path
+    res.render("admin/products/admin"); 
 });
 
 // API route to get products as JSON data

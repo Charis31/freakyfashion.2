@@ -1,35 +1,34 @@
 document.getElementById('product-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Förhindra att formuläret skickas på det vanliga sättet
+    event.preventDefault();
 
-    // Samla in data från formuläret
-    const formData = {
-        name: document.getElementById('name').value,
-        Beskrivning: document.getElementById('Beskrivning').value,
-        brand: document.getElementById('brand').value,
-        SKU: document.getElementById('SKU').value,
-        pris: document.getElementById('pris').value
+    const formData = new FormData(event.target);
+
+    const data = {
+        name: formData.get("name"),
+        beskrivning: formData.get("beskrivning"),
+        brand: formData.get("brand"),
+        SKU: formData.get("SKU"),
+        pris: formData.get("pris")
     };
 
-    // Skicka POST-anrop till backend
-    fetch('/admin/products/new', {
+    fetch('/admin/products/new', {  
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(data)
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Något gick fel: ' + response.statusText);
+        if (response.ok) {
+            window.location.href = '/admin/products';
+        } else {
+            alert('Något gick fel. Kontrollera formuläret och försök igen.');
         }
-        return response.json(); // Vi kan hantera svar som JSON
     })
-    .then(data => {
-        // Omdirigera till produktlistan efter att produkten har lagrats
-        window.location.href = '/admin/products';
-    })
-    .catch(error => {
-        console.error('Det uppstod ett fel:', error);
-        alert('Fel vid inlämning av formuläret. Vänligen försök igen.'); // Visa ett felmeddelande
+    .catch(() => {
+        alert('Kunde inte skicka data. Kontrollera din anslutning och försök igen.');
     });
 });
+
+
+ 

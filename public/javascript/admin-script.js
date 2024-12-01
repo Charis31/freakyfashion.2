@@ -1,6 +1,5 @@
-// Hämta knappen och lägg till en klickhändelse
 document.getElementById('load-products-btn').addEventListener('click', () => {
-  // Skicka en förfrågan till servern
+  
   fetch('/admin/api/products')
     .then(response => {
       if (!response.ok) {
@@ -10,11 +9,9 @@ document.getElementById('load-products-btn').addEventListener('click', () => {
       return response.json();
     })
     .then(products => {
-      // Hitta tabellens kropp
-      const productTableBody = document.querySelector('#product-table tbody');
-      productTableBody.innerHTML = ''; // Rensa befintliga rader
+     const productTableBody = document.querySelector('#product-table tbody');
+      productTableBody.innerHTML = ''; 
 
-      // Lägg till produkter i tabellen
       products.forEach(product => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -22,7 +19,7 @@ document.getElementById('load-products-btn').addEventListener('click', () => {
           <td>${product.product_name}</td>
           <td>${product.SKU}</td>
           <td>${product.pris}</td>
-        `;
+        `;  
         productTableBody.appendChild(row);
       });
     })
